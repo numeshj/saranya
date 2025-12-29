@@ -1,0 +1,13 @@
+{
+  "name": "saranya",
+  "private": true,
+  "packageManager": "npm@10.9.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm --workspace @saranya/api run start:dev",
+    "build:api": "npm --workspace @saranya/api run build"
+  }
+}
