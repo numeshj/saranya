@@ -19,6 +19,10 @@ coverage/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
 # IDE
 .vscode/
+
+# prevent accidental TS emits into src/
+packages/shared/src/**/*.js
