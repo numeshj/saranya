@@ -12,6 +12,7 @@
     "seed": "ts-node -r tsconfig-paths/register src/prisma/seed.ts"
   },
   "dependencies": {
+    "@saranya/shared": "file:../../packages/shared",
     "@nestjs/common": "^10.4.8",
     "@nestjs/core": "^10.4.8",
     "@nestjs/platform-express": "^10.4.8",

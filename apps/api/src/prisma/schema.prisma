@@ -16,8 +16,56 @@ enum Role {
 model User {
   id           String   @id @default(uuid())
   email        String   @unique
-  passwordHash String
+  password     String
   role         Role
   createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+
+  classesTaught Class[] @relation("TeacherClasses")
+}
+
+model Subject {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+
+  classes Class[]
+}
+
+model Grade {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+
+  classes Class[]
+}
+
+model Class {
+  id        String   @id @default(uuid())
+  name      String
+  subjectId String
+  gradeId   String
+  teacherId String
+  createdAt DateTime @default(now())
+
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  grade     Grade   @relation(fields: [gradeId], references: [id])
+  teacher   User    @relation("TeacherClasses", fields: [teacherId], references: [id])
+
+  enrollments Enrollment[]
+
+  @@index([subjectId])
+  @@index([gradeId])
+  @@index([teacherId])
+}
+
+model Enrollment {
+  id        String   @id @default(uuid())
+  studentId String
+  classId   String
+  createdAt DateTime @default(now())
+
+  class Class @relation(fields: [classId], references: [id])
+
+  @@unique([studentId, classId])
+  @@index([classId])
 }

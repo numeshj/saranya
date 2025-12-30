@@ -4,9 +4,6 @@
     "outDir": "dist",
     "rootDir": "src",
     "baseUrl": ".",
-    "paths": {
-      "@saranya/shared": ["../../packages/shared/src"]
-    },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },

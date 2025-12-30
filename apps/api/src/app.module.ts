@@ -4,6 +4,10 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
+import { SubjectsModule } from './modules/subjects/subjects.module';
+import { GradesModule } from './modules/grades/grades.module';
+import { ClassesModule } from './modules/classes/classes.module';
+import { EnrollmentsModule } from './modules/enrollments/enrollments.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
@@ -17,7 +21,11 @@ import { RolesGuard } from './common/guards/roles.guard';
     }),
     PrismaModule,
     AuthModule,
-    UsersModule
+    UsersModule,
+    SubjectsModule,
+    GradesModule,
+    ClassesModule,
+    EnrollmentsModule
   ],
   providers: [
     {
